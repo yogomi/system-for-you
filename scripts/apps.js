@@ -3,7 +3,7 @@ function load_header() {
 }
 
 function append_event() {
-  event = $("<article class='event'></article>");
+  var event = $("<article class='event'></article>");
   if(this["subject"]) {
     event.append("<h2>" + this["subject"] + "</h2>");
   }
@@ -46,5 +46,43 @@ function load_past_event() {
   $("#events").empty();
   $.getJSON("src/get_past_event.rb", function(datas) {
     $.each(datas.past_event_list, append_event);
+  })
+}
+
+function append_dress(filter) {
+  return function () {
+    if (filter(this)) {
+      var dress = $("<a href=\"" + this["picture-path"]
+                + "\" class=\"dress\" title=\"" + this["serial"]
+                + "\"></a>");
+      dress.append("<img src=\"" + this["picture-path"]
+                    + "\" style=\"height:200px;\" alt=\"image\" />");
+      dress.appendTo("#dresses");
+    }
+  }
+}
+
+function show(filter) {
+  $("#dresses").empty();
+  builder = append_dress(filter);
+  if (typeof dress_data === "undefined") {
+    $.getJSON("src/get_dress_list.rb", function(datas) {
+      dress_data = datas;
+      $.each(dress_data, builder);
+      $(".dress").swipebox();
+    });
+  } else {
+    $.each(dress_data, builder);
+    $(".dress").swipebox();
+  }
+}
+
+function show_all_dress() {
+  show(function (data){return true;});
+}
+
+function show_new_dress() {
+  show(function (data) {
+    return data["new"];
   })
 }
