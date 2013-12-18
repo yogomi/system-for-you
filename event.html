@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>ぎゃらりーふぉーゆー</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script type="text/javascript" src="scripts/jquery-2.0.2.js"></script>
+    <script type="text/javascript" src="scripts/apps.js"></script>
+    <script type="text/javascript">
+      function init() {
+        load_header();
+        load_future_event();
+      }
+      $(document).ready(init);
+    </script>
+  </head>
+  <body>
+    <div id="header">
+    </div>
+    <nav class='sidemenu'>
+      <ul>
+        <li><a href="#" onclick="load_future_event(); return false">お知らせ</a></li>
+        <li><a href="#" onclick="load_past_event();return false">過去のお知らせ</a></li>
+      </ul>
+    </nav>
+    <div id="main">
+      <section id="events">
+      </section>
+    </div>
+  </body>
+</html>

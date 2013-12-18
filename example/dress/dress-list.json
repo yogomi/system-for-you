@@ -1,0 +1,14 @@
+[
+  { "color" : "red"
+    , "size" : 16
+    , "serial" : "GB09020001"
+  }, {
+    "color" : "blue/red"
+    , "size" : "16(50)"
+    , "serial" : "HF13010001"
+  }, {
+    "color" : "green"
+    , "size" : 12
+    , "serial" : "DF13100093"
+  }
+]
