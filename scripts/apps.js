@@ -5,7 +5,7 @@ function load_header() {
 function append_event() {
   var event = $("<article class='event sticker'></article>");
   if(this["subject"]) {
-    event.append("<h2>" + this["subject"] + "</h2>");
+    event.append("<h3>" + this["subject"] + "</h3>");
   }
   event.append("<time datetime=\"" + this["datetime"]
               + "\">" + this["date"] + "</time>");
@@ -14,8 +14,8 @@ function append_event() {
                 + this["message"] + "</p>");
   }
   if(this["place"]) {
-    event.append("<h3 class='place'>"
-                + this["place"] + "</h3>");
+    event.append("<h4 class='place'>"
+                + this["place"] + "</h4>");
   }
   if(this["address"]) {
     event.append("<p class='address'>"
@@ -31,6 +31,9 @@ function append_event() {
 function load_nearby_event() {
   $("#events").empty();
   $.getJSON("src/get_nearby_event.rb", function(datas) {
+    if (datas.nearby_event_list.length > 0) {
+      $("#events").append("<h2 id='news-header'>News!</h2>");
+    }
     $.each(datas.nearby_event_list, append_event);
   })
 }
