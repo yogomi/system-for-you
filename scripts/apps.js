@@ -3,7 +3,7 @@ function load_header() {
 }
 
 function append_event() {
-  var event = $("<article class='event'></article>");
+  var event = $("<article class='event sticker'></article>");
   if(this["subject"]) {
     event.append("<h2>" + this["subject"] + "</h2>");
   }
