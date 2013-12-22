@@ -1,4 +1,4 @@
-#!/home/yan/.rbenv/versions/1.9.3-rc1/bin/ruby
+#!/Users/yan/.rbenv/versions/1.9.3-rc1/bin/ruby -E utf-8
 # -*- encoding: utf-8 -*-
 
 $: .unshift File.dirname(__FILE__)

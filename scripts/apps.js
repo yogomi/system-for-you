@@ -59,7 +59,7 @@ function append_dress(filter) {
                 + "\" class=\"dress\" title=\"" + this["serial"]
                 + "\"></a>");
       dress.append("<img src=\"" + this["picture-path"]
-                    + "\" style=\"height:200px;\" alt=\"image\" />");
+                    + "\" class=\"dress-image\" alt=\"image\" />");
       dress.appendTo("#dresses");
     }
   }
